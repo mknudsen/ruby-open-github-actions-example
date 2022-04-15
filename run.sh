@@ -1,7 +1,10 @@
+#!/bin/bash
 
 ruby -v
 
-ruby -w -e 'require "open-uri"
-    open("https://linkhal.de") do |uri|
-         print(uri.read)
-    end'
+gem install jekyll-import
+
+ruby -w -r rubygems -e 'require "jekyll-import";
+    JekyllImport::Importers::RSS.run({
+      "source" => "https://letterboxd.com/kndsn/rss/"
+    })'
