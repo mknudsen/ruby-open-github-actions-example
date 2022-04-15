@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+  push:
+
+name: some-ruby-workflow
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: run some script that runs ruby code
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash ./run
