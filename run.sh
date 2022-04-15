@@ -1,8 +1,7 @@
-#!/bin/bash
 
-set -euo pipefail
+ruby -v
 
-ruby -r rubygems -e 'require "open-uri"
+ruby -w -e 'require "open-uri"
     open("https://linkhal.de") do |uri|
          print(uri.read)
     end'

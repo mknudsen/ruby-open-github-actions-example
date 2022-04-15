@@ -14,5 +14,5 @@ jobs:
     - name: run some script that runs ruby code
       run: |
         docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash ./run.sh
+        -v ${PWD}:/mnt
+        ruby:3.1.1-alpine3.15 /bin/sh /mnt/run.sh
